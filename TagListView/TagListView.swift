@@ -341,6 +341,7 @@ open class TagListView: UIView {
     @discardableResult
     open func addTagViews(_ tagViews: [TagView]) -> [TagView] {
         for tagView in tagViews {
+            tagView.removeButtonImage = removeButtonImage
             self.tagViews.append(tagView)
             tagBackgroundViews.append(UIView(frame: tagView.bounds))
         }
@@ -355,6 +356,7 @@ open class TagListView: UIView {
     
     @discardableResult
     open func addTagView(_ tagView: TagView) -> TagView {
+        tagView.removeButtonImage = removeButtonImage
         tagViews.append(tagView)
         tagBackgroundViews.append(UIView(frame: tagView.bounds))
         rearrangeViews()
@@ -364,6 +366,7 @@ open class TagListView: UIView {
 
     @discardableResult
     open func insertTagView(_ tagView: TagView, at index: Int) -> TagView {
+        tagView.removeButtonImage = removeButtonImage
         tagViews.insert(tagView, at: index)
         tagBackgroundViews.insert(UIView(frame: tagView.bounds), at: index)
         rearrangeViews()

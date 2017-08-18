@@ -125,9 +125,9 @@ open class TagView: UIButton {
         }
     }
     
-    @IBInspectable public var removeButtonImage: UIImage? {
+    @IBInspectable open var removeButtonImage: UIImage? = nil {
         didSet {
-            removeButton.setImage(removeButtonImage, for: .normal)
+            removeButton.setImage(removeButtonImage, for: [])
             updateRightInsets()
         }
     }
@@ -185,7 +185,7 @@ open class TagView: UIButton {
     // MARK: - layout
 
     override open var intrinsicContentSize: CGSize {
-        var size = titleLabel?.text?.size(withAttributes: [NSAttributedStringKey.font: textFont]) ?? CGSize.zero
+        var size = titleLabel?.text?.size(attributes: [NSFontAttributeName: textFont]) ?? CGSize.zero
         size.height = textFont.pointSize + paddingY * 2
         size.width += paddingX * 2
         if size.width < size.height {
