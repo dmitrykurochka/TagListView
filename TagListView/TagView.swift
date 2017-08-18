@@ -125,6 +125,13 @@ open class TagView: UIButton {
         }
     }
     
+    @IBInspectable public var removeButtonImage: UIImage? {
+        didSet {
+            removeButton.setImage(removeButtonImage, for: .normal)
+            updateRightInsets()
+        }
+    }
+    
     @IBInspectable open var removeButtonIconSize: CGFloat = 12 {
         didSet {
             removeButton.iconSize = removeButtonIconSize
