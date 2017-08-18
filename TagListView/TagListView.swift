@@ -154,6 +154,15 @@ open class TagListView: UIView {
         }
     }
     
+    @IBInspectable public var removeButtonImage: UIImage? {
+        didSet {
+            for tagView in tagViews {
+                tagView.removeButtonImage = removeButtonImage
+            }
+            rearrangeViews()
+        }
+    }
+    
     @IBInspectable open dynamic var removeButtonIconSize: CGFloat = 12 {
         didSet {
             for tagView in tagViews {
