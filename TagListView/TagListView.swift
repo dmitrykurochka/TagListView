@@ -336,18 +336,13 @@ open class TagListView: UIView {
         tagView.addTarget(self, action: #selector(tagPressed(_:)), for: .touchUpInside)
         tagView.removeButton.addTarget(self, action: #selector(removeButtonPressed(_:)), for: .touchUpInside)
         
-        // On long press, deselect all tags except this one
-        tagView.onLongPress = { [unowned self] this in
-            for tag in self.tagViews {
-                tag.isSelected = tag == this
-            }
-        }
-        
         // On tap, deselect all tags if multiple select disabled
         tagView.onTap = { [unowned self] this in
-            if !self.enableMutipleSelection {
-                self.tagViews.forEach {
-                    $0.isSelected = $0 == this
+            if self.enableMutipleSelection {
+                this.isSelected = !this.isSelected
+            } else {
+                for tag in self.tagViews {
+                    tag.isSelected = tag == this
                 }
             }
         }
