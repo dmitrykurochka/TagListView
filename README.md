@@ -75,6 +75,14 @@ Or [Carthage](https://github.com/Carthage/Carthage):
 github "ElaWorkshop/TagListView" ~> 1.0
 ```
 
+Or [Swift Package Manager](swift package manager):
+
+```ruby
+dependencies: [
+    .package(url: "https://github.com/fplsv/TagListView")
+]
+```
+
 Or drag **TagListView** folder into your project.
 
 ### Older Swift Versions?
